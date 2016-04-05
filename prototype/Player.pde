@@ -10,6 +10,12 @@ class Player extends GameObject
  
  void update(){
    
+    if (keys['w'])
+    {
+      Bullet b = new Bullet(pos.x, pos.y, /*ROTATION HERE...?*/);
+      bullets.add(b);
+    }
+    
   if(keys[RIGHT])
   {
    pos.x+=speed; 
@@ -26,6 +32,7 @@ class Player extends GameObject
   {
     pos.y+= speed; 
   }
+  
  } 
  
  void render(){

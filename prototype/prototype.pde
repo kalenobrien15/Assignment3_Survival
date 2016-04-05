@@ -1,7 +1,10 @@
 
 PImage splash;
 
+ArrayList<Bullet> bullets = new ArrayList<Bullet>(); 
+
 boolean [] keys = new boolean[2000];
+
 
 void keyPressed()
 {
