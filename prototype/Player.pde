@@ -5,14 +5,17 @@ class Player extends GameObject
   
   super(x,y);
   speed = 3;
-  gravity = 1;
+  //gravity = 1;
  }
  
  void update(){
    
-    if (keys['w'])
+    direction.x = sin(theta);
+    direction.y = - cos(theta);
+    direction.mult(speed);
+    if (keys[' '])
     {
-      Bullet b = new Bullet(pos.x, pos.y, /*ROTATION HERE...?*/);
+      Bullet b = new Bullet(pos.x, pos.y,90);
       bullets.add(b);
     }
     
@@ -32,6 +35,25 @@ class Player extends GameObject
   {
     pos.y+= speed; 
   }
+    if (pos.x < 0)
+    {
+      pos.x = width;
+    }
+    
+    if (pos.x > width)
+    {
+      pos.x = 0;
+    }
+    
+    if (pos.y < 0)
+    {
+      pos.y = height;
+    }
+    
+    if (pos.y > height)
+    {
+      pos.y = 0;
+    }
   
  } 
  

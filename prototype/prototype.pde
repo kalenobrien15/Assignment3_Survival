@@ -1,7 +1,7 @@
 
 PImage splash;
 
-ArrayList<Bullet> bullets = new ArrayList<Bullet>(); 
+
 
 boolean [] keys = new boolean[2000];
 
@@ -36,6 +36,7 @@ GameScreen Screen = new GameScreen();
 GameScreen Screen = new GameScreen();
 Player player1 = new Player(cx,cy);
 
+ArrayList<Bullet> bullets = new ArrayList<Bullet>(); 
 void draw() {
     rectMode(CENTER);
   
@@ -46,6 +47,14 @@ Screen.update();
 if(Screen.gameScreen == 1){
    player1.render();
    player1.update();
+   
+    for (int i = 0 ; i < bullets.size() ; i ++)
+  {
+    bullets.get(i).update();
+    bullets.get(i).render();
+    
+  
+  }
 } 
     
   
