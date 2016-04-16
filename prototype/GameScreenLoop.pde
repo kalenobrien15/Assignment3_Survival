@@ -6,7 +6,7 @@ class GameScreen
   // 2; Game Screen;
   // 3; GameOver screen;
 
-  int gameScreen=1;
+  int gameScreen=0;
   int timer = 0;
   GameScreen()
   {
