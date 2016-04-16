@@ -1,46 +1,53 @@
 class Player extends GameObject
 {
-  Boolean frame1, frame2;
-  float speed = 1;
+ float speed = 1;
+ 
   Player(float x, float y) {
 
     super(x, y);
-    speed = 3;
+    speed = 5;
     
     //gravity = 1;
   }
-
+    
+    
   void update() {
    
     direction.x = sin(theta);
     direction.y = - cos(theta);
     direction.mult(speed);
-    if(moving==true){
+    if (moving==true){
      walk.play(); 
     }
     if (keys[' '])
     {
       Bullet b = new Bullet(pos.x, pos.y, 1.55);
       bullets.add(b);
-    } else if (keys[RIGHT])
+    } 
+    
+    else if (keys[RIGHT])
     {
       moving=true;
       pos.x+=speed;
-    } else if (keys[LEFT])
+    }
+   else  if (keys[LEFT])
     {
       moving= true;
       pos.x-= speed;
-    } else if (keys[UP])
+    }
+    else if (keys[UP])
     {
       moving=true;
       pos.y-= speed;
-    } else if (keys[DOWN])
+    }
+    else   if (keys[DOWN])
     {
       moving=true;
       pos.y+= speed;
-    } else {
-      moving=false;
     }
+      else{moving=false;}
+    
+    
     
     
 

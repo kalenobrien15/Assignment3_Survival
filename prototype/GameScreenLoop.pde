@@ -46,7 +46,7 @@ class GameScreen
   }
 
   void gameScreen() {
-  //  background(255,0,0);
+    background(255,0,0);
     // codes for game over screen
   }
 
