@@ -6,7 +6,7 @@ class GameScreen
   // 2; Game Screen;
   // 3; GameOver screen;
 
-  int gameScreen=1;
+  int gameScreen=2;
   int timer = 0;
   GameScreen()
   {
@@ -25,9 +25,13 @@ class GameScreen
         if(timer>=500){
         gameScreen = 1;
         }
-    } else if (gameScreen == 1) {
-      menuScreen();
-    } else if (gameScreen == 2) {
+    } 
+    else if (gameScreen == 1) {
+    menuScreen();
+    }
+    else if (gameScreen == 2) {
+      gameScreen();
+    } else if (gameScreen == 3) {
       gameOverScreen();
       }
     }
@@ -47,7 +51,12 @@ class GameScreen
   }
 
   void gameScreen() {
-    background(255,0,0);
+   imageMode(CENTER);
+   image(ground,cx,cy,width,height);
+   textFont(font,32);
+   text("Time "+ time, 10,50);
+   textFont(font,26);
+   text("Gold " + score,15,82);
     // codes for game over screen
   }
 

@@ -1,6 +1,7 @@
 import gifAnimation.*;
 Gif walk;
 
+PFont font;
 
 PImage splash;
 PImage ground;
@@ -16,6 +17,9 @@ boolean moving;
 
 boolean [] keys = new boolean[2000];
 
+//Game Variables
+int time;
+int score;
 
 void keyPressed()
 {
@@ -51,6 +55,8 @@ pframe1 = loadImage("player/frame1.png");
 pframe2 = loadImage("player/frame2.png");
 pidle = loadImage("player/idle.png");
 
+//Font
+font = loadFont("font.vlw");
 
 }
 GameScreen Screen = new GameScreen();
@@ -65,7 +71,7 @@ void draw() {
 
 Screen.update();
  // When the player should be active .
-if(Screen.gameScreen == 1){
+if(Screen.gameScreen == 2){
    player1.render();
    player1.update();
    
