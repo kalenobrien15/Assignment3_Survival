@@ -45,7 +45,7 @@ GameScreen Screen = new GameScreen();
 
 // Screens
  splash = loadImage ("screen/splash.png") ;
- 
+ ground = loadImage("screen/ground.png");
 // Frames for animation
 pframe1 = loadImage("player/frame1.png");
 pframe2 = loadImage("player/frame2.png");

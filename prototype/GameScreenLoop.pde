@@ -6,7 +6,7 @@ class GameScreen
   // 2; Game Screen;
   // 3; GameOver screen;
 
-  int gameScreen=0;
+  int gameScreen=1;
   int timer = 0;
   GameScreen()
   {
@@ -42,7 +42,8 @@ class GameScreen
     }
 
   void menuScreen() {
-    background(255,255,0);
+   image(CENTER);
+   ground(0,0,width,height);
   }
 
   void gameScreen() {

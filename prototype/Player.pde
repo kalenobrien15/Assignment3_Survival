@@ -1,6 +1,6 @@
 class Player extends GameObject
 {
- float speed = 1;
+ float speed = 0.5;
  
   Player(float x, float y) {
 
@@ -52,24 +52,24 @@ class Player extends GameObject
     
 
     //If edge reached
-    if (pos.x < 0)
+    if (pos.x < -20)
     {
-      pos.x = width;
+      pos.x = width-10;
     }
 
-    if (pos.x > width)
+    if (pos.x > width+20)
     {
-      pos.x = 0;
+      pos.x = -10;
     }
 
-    if (pos.y < 0)
+    if (pos.y < -20)
     {
       pos.y = height;
     }
 
-    if (pos.y > height)
+    if (pos.y > height+20)
     {
-      pos.y = 0;
+      pos.y = -10;
     }
   } 
 
