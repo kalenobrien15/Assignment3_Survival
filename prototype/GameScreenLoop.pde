@@ -42,8 +42,8 @@ class GameScreen
     }
 
   void menuScreen() {
-   image(CENTER);
-   ground(0,0,width,height);
+   imageMode(CENTER);
+   image(ground,cx,cy,width,height);
   }
 
   void gameScreen() {

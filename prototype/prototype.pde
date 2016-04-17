@@ -3,7 +3,7 @@ Gif walk;
 
 
 PImage splash;
-
+PImage ground;
 // Player Frames
 PImage pidle;
 PImage pframe1;
