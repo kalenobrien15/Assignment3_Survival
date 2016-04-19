@@ -1,5 +1,6 @@
 class GameObject
 {
+   float speed = 0.5;
   PVector direction;
   float theta = 0.0f;
   PVector pos;

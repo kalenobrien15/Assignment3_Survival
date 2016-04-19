@@ -1,6 +1,6 @@
 class Player extends GameObject
 {
-  float speed = 0.5;
+ 
 
   Player(float x, float y) {
 
@@ -13,9 +13,7 @@ class Player extends GameObject
 
   void update() {
     movement();
-    direction.x = sin(theta);
-    direction.y = - cos(theta);
-    direction.mult(speed);
+    
     if (moving==true) {
       walk.play();
     }

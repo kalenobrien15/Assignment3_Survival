@@ -7,8 +7,16 @@ class Enemy extends GameObject {
   }
 
   void update() {
+    
   }
   void render() {
+    
+    pushMatrix();
+    translate(pos.x,pos.y);
+    fill(255);
+    stroke(0);
+    ellipse(0,0,50,50);
+    popMatrix();
   }
 }
 
