@@ -26,19 +26,15 @@ class Player extends GameObject
     } else if (keys[RIGHT])
     {
       moving=true;
-
     } else  if (keys[LEFT])
     {
       moving= true;
-
     } else if (keys[UP])
     {
       moving=true;
-
     } else   if (keys[DOWN])
     {
       moving=true;
-
     } else {
       moving=false;
     }
