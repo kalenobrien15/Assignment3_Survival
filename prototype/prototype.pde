@@ -18,8 +18,8 @@ boolean moving;
 boolean [] keys = new boolean[2000];
 
 //Game Variables
-int time=60;
- int s = millis();
+int time = second();
+int s = second();
 int score;
 
 void keyPressed()
@@ -35,54 +35,52 @@ int screenheight, screenwidth;
 int cx, cy;
 
 void setup() {
- // frameRate(60);
+  time=59;
+  s=1;
+  // frameRate(60);
   screenheight = 720;
   screenwidth = 1080;
   size(screenwidth, screenheight);
   cx = screenwidth/2;
   cy = screenheight/2;
   walk = new Gif(this, "player/walk.gif");
- 
-    player1.pos.x = cx;
-player1.pos.y = cy;
-Player player1 = new Player(cx,cy);
-GameScreen Screen = new GameScreen();
 
-// Screens
- splash = loadImage ("screen/splash.png") ;
- ground = loadImage("screen/ground.png");
-// Frames for animation
-pframe1 = loadImage("player/frame1.png");
-pframe2 = loadImage("player/frame2.png");
-pidle = loadImage("player/idle.png");
+  player1.pos.x = cx;
+  player1.pos.y = cy;
+  Player player1 = new Player(cx, cy);
+  GameScreen Screen = new GameScreen();
 
-//Font
-font = loadFont("font.vlw");
+  // Screens
+  splash = loadImage ("screen/splash.png") ;
+  ground = loadImage("screen/ground.png");
+  // Frames for animation
+  pframe1 = loadImage("player/frame1.png");
+  pframe2 = loadImage("player/frame2.png");
+  pidle = loadImage("player/idle.png");
 
+  //Font
+  font = loadFont("font.vlw");
 }
 GameScreen Screen = new GameScreen();
-Player player1 = new Player(cx,cy);
+Player player1 = new Player(cx, cy);
 
 ArrayList<Bullet> bullets = new ArrayList<Bullet>(); 
 void draw() {
-    time-= s;
-    rectMode(CENTER);
-  
+  time-= s;
+  rectMode(CENTER);
+
   //background(0,120,205);
 
-Screen.update();
- // When the player should be active .
-if(Screen.gameScreen == 2){
+  Screen.update();
+  // When the player should be active .
+  if (Screen.gameScreen == 2) {
 
-   
-    for (int i = 0 ; i < bullets.size() ; i ++)
-  {
-    bullets.get(i).update();
-    bullets.get(i).render();
-    
-  
+
+    for (int i = 0; i < bullets.size (); i ++)
+    {
+      bullets.get(i).update();
+      bullets.get(i).render();
+    }
   }
-} 
-    
-  
 }
+
