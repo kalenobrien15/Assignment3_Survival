@@ -18,7 +18,8 @@ boolean moving;
 boolean [] keys = new boolean[2000];
 
 //Game Variables
-int time;
+int time=60;
+ int s = millis();
 int score;
 
 void keyPressed()
@@ -34,7 +35,7 @@ int screenheight, screenwidth;
 int cx, cy;
 
 void setup() {
-  frameRate(60);
+ // frameRate(60);
   screenheight = 720;
   screenwidth = 1080;
   size(screenwidth, screenheight);
@@ -64,7 +65,7 @@ Player player1 = new Player(cx,cy);
 
 ArrayList<Bullet> bullets = new ArrayList<Bullet>(); 
 void draw() {
-    
+    time-= s;
     rectMode(CENTER);
   
   //background(0,120,205);
@@ -72,8 +73,7 @@ void draw() {
 Screen.update();
  // When the player should be active .
 if(Screen.gameScreen == 2){
-   player1.render();
-   player1.update();
+
    
     for (int i = 0 ; i < bullets.size() ; i ++)
   {

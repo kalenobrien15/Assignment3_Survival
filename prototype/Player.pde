@@ -1,55 +1,51 @@
 class Player extends GameObject
 {
- float speed = 0.5;
- 
+  float speed = 0.5;
+
   Player(float x, float y) {
 
     super(x, y);
     speed = 5;
-    
+
     //gravity = 1;
   }
-    
-    
+
+
   void update() {
-   
+    movement();
     direction.x = sin(theta);
     direction.y = - cos(theta);
     direction.mult(speed);
-    if (moving==true){
-     walk.play(); 
+    if (moving==true) {
+      walk.play();
     }
     if (keys[' '])
     {
       Bullet b = new Bullet(pos.x, pos.y, 1.55);
       bullets.add(b);
-    } 
-    
-    else if (keys[RIGHT])
+    } else if (keys[RIGHT])
     {
       moving=true;
-      pos.x+=speed;
-    }
-   else  if (keys[LEFT])
+
+    } else  if (keys[LEFT])
     {
       moving= true;
-      pos.x-= speed;
-    }
-    else if (keys[UP])
+
+    } else if (keys[UP])
     {
       moving=true;
-      pos.y-= speed;
-    }
-    else   if (keys[DOWN])
+
+    } else   if (keys[DOWN])
     {
       moving=true;
-      pos.y+= speed;
+
+    } else {
+      moving=false;
     }
-      else{moving=false;}
-    
-    
-    
-    
+
+
+
+
 
     //If edge reached
     if (pos.x < -20)
@@ -86,22 +82,46 @@ class Player extends GameObject
     }
 
     if (moving==true) {
-     
-      image(walk,0,0);
-    /*  if (frame1==true) {
-        image(pframe1, 0, 0);
-        framecount%10;
-        frame2=true;
-      }
-      if (frame2==true) {
 
-        image(pframe2, 0, 0);
-        framecount%20;
-        frame1=true; */
-      }
-     
-    
- popMatrix();
+      image(walk, 0, 0);
+      /*  if (frame1==true) {
+       image(pframe1, 0, 0);
+       framecount%10;
+       frame2=true;
+       }
+       if (frame2==true) {
+       
+       image(pframe2, 0, 0);
+       framecount%20;
+       frame1=true; */
+    }
+
+
+    popMatrix();
+  }
+
+
+  void movement() {
+    if (keys[RIGHT])
+    {
+
+      pos.x+=speed;
+    }
+    if (keys[LEFT])
+    {
+
+      pos.x-= speed;
+    }
+    if (keys[UP])
+    {
+
+      pos.y-= speed;
+    }
+    if (keys[DOWN])
+    {
+
+      pos.y+= speed;
+    }
   }
 }
 

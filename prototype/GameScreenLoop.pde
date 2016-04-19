@@ -52,12 +52,23 @@ class GameScreen
 
   void gameScreen() {
    imageMode(CENTER);
+   //Background 
    image(ground,cx,cy,width,height);
+   //Player
+   player1.render();
+   player1.update();
+   //Information
    textFont(font,32);
-   text("Time "+ time, 10,50);
+   fill(0);
+   rect(cx,height-40,width,80);
+   fill(255);
+   text("Time "+ time, 10,height-42);
    textFont(font,26);
-   text("Gold " + score,15,82);
+   text("Gold " + score,15,height-10);
     // codes for game over screen
+    
+  
+    
   }
 
   void gameOverScreen() {
