@@ -2,7 +2,7 @@ class GameObject
 {
    float speed = 0.5;
   PVector direction;
-  float theta = 0.0f;
+  float theta = 0;
   PVector pos;
   int gravity;
   GameObject(float x, float y)

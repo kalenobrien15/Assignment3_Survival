@@ -17,11 +17,7 @@ class Player extends GameObject
     if (moving==true) {
       walk.play();
     }
-    if (keys[' '])
-    {
-      Bullet b = new Bullet(pos.x, pos.y, 1.55);
-      bullets.add(b);
-    } else if (keys[RIGHT])
+    else if (keys[RIGHT])
     {
       moving=true;
     } else  if (keys[LEFT])
@@ -98,8 +94,14 @@ class Player extends GameObject
   void movement() {
     if (keys[RIGHT])
     {
-
+      
       pos.x+=speed;
+       if(keys[' '])
+       {
+         Bullet b = new Bullet(pos.x+50, pos.y);
+        bullets.add(b);
+        
+       }
     }
     if (keys[LEFT])
     {

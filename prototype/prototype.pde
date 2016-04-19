@@ -37,7 +37,7 @@ int cx, cy;
 void setup() {
   time=59;
   s=1;
-  // frameRate(60);
+  frameRate(60);
   screenheight = 720;
   screenwidth = 1080;
   size(screenwidth, screenheight);
@@ -66,7 +66,7 @@ Player player1 = new Player(cx, cy);
 
 ArrayList<Bullet> bullets = new ArrayList<Bullet>(); 
 void draw() {
-  time-= s;
+
   rectMode(CENTER);
 
   //background(0,120,205);
@@ -74,7 +74,9 @@ void draw() {
   Screen.update();
   // When the player should be active .
   if (Screen.gameScreen == 2) {
-
+     if(frameCount%60==0){
+      timer(); 
+     }
 
     for (int i = 0; i < bullets.size (); i ++)
     {
@@ -83,4 +85,14 @@ void draw() {
     }
   }
 }
+  
+  
+  
+void timer(){
+   
+  time -= s;
+  
+}
+
+
 
