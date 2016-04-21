@@ -101,23 +101,28 @@ class Player extends GameObject
       pos.x+=speed;
       if (keys[' '])
       {
-        Bullet b = new Bullet(pos.x, pos.y, 0);
+        Bullet b = new Bullet(pos.x, pos.y, HALF_PI);
         bullets.add(b);
       }
     }
     if (keys[LEFT])
     {
       pos.x-= speed;
-      if (keys[' '])
+   /*   if (keys[' '])
       {
-        Bullet b = new Bullet(pos.x, pos.y);
+        Bullet b = new Bullet(pos.x, pos.y, 3/2 PI);
         bullets.add(b);
-      }
+      }*/
     }
     if (keys[UP])
     {
 
       pos.y-= speed;
+       if (keys[' '])
+      {
+        Bullet b = new Bullet(pos.x, pos.y, 0);
+        bullets.add(b);
+      }
     }
     if (keys[DOWN])
     {
