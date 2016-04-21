@@ -13,23 +13,19 @@ class Player extends GameObject
 
   void update() {
     movement();
-   
+
     if (moving==true) {
       walk.play();
-    } 
-    if (keys[RIGHT])
+    } else if (keys[RIGHT])
     {
       moving=true;
-    } 
-    else if (keys[LEFT])
+    } else  if (keys[LEFT])
     {
       moving= true;
-    } 
-    else if (keys[UP])
+    } else if (keys[UP])
     {
       moving=true;
-    } 
-    else if (keys[DOWN])
+    } else   if (keys[DOWN])
     {
       moving=true;
     } else {
@@ -93,34 +89,41 @@ class Player extends GameObject
     popMatrix();
   }
 
+  PVector left, right, up, down;
 
   void movement() {
+
+    right = new PVector(1, 0);
+    left = new PVector(-1, 0);
+    up = new PVector(0, -1);
+    down = new PVector(0, 1);
+
     if (keys[RIGHT])
     {
 
       pos.x+=speed;
       if (keys[' '])
       {
-        Bullet b = new Bullet(pos.x, pos.y, HALF_PI);
+        //        PVector left = new PVector(0, 1);
+        Bullet b = new Bullet(pos.x, pos.y, right);
         bullets.add(b);
       }
     }
     if (keys[LEFT])
     {
       pos.x-= speed;
-   /*   if (keys[' '])
+      if (keys[' '])
       {
-        Bullet b = new Bullet(pos.x, pos.y, 3/2 PI);
+        Bullet b = new Bullet(pos.x, pos.y, left);
         bullets.add(b);
-      }*/
+      }
     }
-    if (keys[UP])
+    if (keysRelease[UP])
     {
-
       pos.y-= speed;
-       if (keys[' '])
+      if (keys[' '])
       {
-        Bullet b = new Bullet(pos.x, pos.y, 0);
+        Bullet b = new Bullet(pos.x, pos.y, up);
         bullets.add(b);
       }
     }
@@ -128,6 +131,11 @@ class Player extends GameObject
     {
 
       pos.y+= speed;
+      if (keys[' '])
+      {
+        Bullet b = new Bullet(pos.x, pos.y, down);
+        bullets.add(b);
+      }
     }
   }
 }
