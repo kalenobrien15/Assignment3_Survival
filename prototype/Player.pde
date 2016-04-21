@@ -1,12 +1,12 @@
 class Player extends GameObject
 {
-
+  float ammo;
 
   Player(float x, float y) {
 
     super(x, y);
     speed = 5;
-
+    ammo = 5;
     //gravity = 1;
   }
 
@@ -102,39 +102,54 @@ class Player extends GameObject
     {
 
       pos.x+=speed;
-      if (keys[' '])
-      {
-        //        PVector left = new PVector(0, 1);
-        Bullet b = new Bullet(pos.x, pos.y, right);
-        bullets.add(b);
+      if (ammo>0) {
+        if (keys[' '])
+        {
+          //        PVector left = new PVector(0, 1);
+          Bullet b = new Bullet(pos.x, pos.y, right);
+          bullets.add(b);
+          ammo --;
+        }
       }
     }
     if (keys[LEFT])
     {
       pos.x-= speed;
-      if (keys[' '])
-      {
-        Bullet b = new Bullet(pos.x, pos.y, left);
-        bullets.add(b);
+      if (ammo>0) {
+        if (keys[' '])
+        {
+          //        PVector left = new PVector(0, 1);
+          Bullet b = new Bullet(pos.x, pos.y, left);
+          bullets.add(b);
+          ammo --;
+        }
       }
     }
-    if (keysRelease[UP])
+    if (keys[UP])
     {
       pos.y-= speed;
-      if (keys[' '])
-      {
-        Bullet b = new Bullet(pos.x, pos.y, up);
-        bullets.add(b);
+       if (ammo>0) {
+        if (keys[' '])
+        {
+          //        PVector left = new PVector(0, 1);
+          Bullet b = new Bullet(pos.x, pos.y, up);
+          bullets.add(b);
+          ammo --;
+        }
       }
     }
     if (keys[DOWN])
     {
 
       pos.y+= speed;
-      if (keys[' '])
-      {
-        Bullet b = new Bullet(pos.x, pos.y, down);
-        bullets.add(b);
+       if (ammo>0) {
+        if (keys[' '])
+        {
+          //        PVector left = new PVector(0, 1);
+          Bullet b = new Bullet(pos.x, pos.y, down);
+          bullets.add(b);
+          ammo --;
+        }
       }
     }
   }
