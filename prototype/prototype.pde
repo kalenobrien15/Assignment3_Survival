@@ -60,6 +60,8 @@ void setup() {
 
   //Font
   font = loadFont("font.vlw");
+  //Directions
+  
 }
 GameScreen Screen = new GameScreen();
 Player player1 = new Player(cx, cy);
