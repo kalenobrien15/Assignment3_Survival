@@ -1,6 +1,5 @@
 class Player extends GameObject
 {
-  float ammo;
 
   Player(float x, float y) {
 
@@ -109,6 +108,11 @@ class Player extends GameObject
           Bullet b = new Bullet(pos.x, pos.y, right);
           bullets.add(b);
           ammo --;
+          
+         if(b.pos.x>=width){
+            bullets.remove(b); 
+           println("Removed");
+         }
         }
       }
     }
@@ -131,6 +135,7 @@ class Player extends GameObject
        if (ammo>0) {
         if (keys[' '])
         {
+          
           //        PVector left = new PVector(0, 1);
           Bullet b = new Bullet(pos.x, pos.y, up);
           bullets.add(b);

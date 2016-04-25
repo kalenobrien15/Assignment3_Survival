@@ -18,6 +18,7 @@ class GameScreen
   void update()
   {
 
+   
     if (gameScreen == 0) {
       splashScreen();
       oppacity-=0.8;
@@ -46,6 +47,8 @@ class GameScreen
   void menuScreen() {
     imageMode(CENTER);
     image(ground, cx, cy, width, height);
+    
+
   }
 
   void gameScreen() {
@@ -73,5 +76,6 @@ class GameScreen
     // if(start = true){
     // gameScreen = 2;
   }
+ 
 }
 

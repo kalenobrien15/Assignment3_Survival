@@ -2,6 +2,7 @@ import gifAnimation.*;
 Gif walk;
 
 PFont font;
+  float ammo;
 
 PImage splash;
 PImage ground;
@@ -11,6 +12,8 @@ PImage pframe1;
 PImage pframe2;
 
 PImage playerCurrentFrame;
+
+  
 
 boolean moving;
 //For Multiple key Presses
@@ -57,7 +60,9 @@ void setup() {
   pframe1 = loadImage("player/frame1.png");
   pframe2 = loadImage("player/frame2.png");
   pidle = loadImage("player/idle.png");
-
+  
+ 
+  
   //Font
   font = loadFont("font.vlw");
   //Directions
@@ -65,6 +70,7 @@ void setup() {
 }
 GameScreen Screen = new GameScreen();
 Player player1 = new Player(cx, cy);
+//Bullets
 
 ArrayList<Bullet> bullets = new ArrayList<Bullet>(); 
 void draw() {
@@ -84,10 +90,12 @@ void draw() {
     {
       bullets.get(i).update();
       bullets.get(i).render();
+      
     }
   }
 }
-  
+//For Button
+
   
   
 void timer(){

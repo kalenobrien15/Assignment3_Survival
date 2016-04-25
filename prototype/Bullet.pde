@@ -11,6 +11,19 @@ class Bullet extends GameObject
   void update()
   {
     pos.add(PVector.mult(shootDirection, bulletSpeed));
+    
+    if(pos.x>width){
+      
+    }
+    if(pos.x<0){
+      
+    }
+    if(pos.y<0){
+      
+    }
+    if(pos.y>height){
+    
+    }
   }
 
   void render()
@@ -18,7 +31,7 @@ class Bullet extends GameObject
     pushMatrix();
     translate(pos.x, pos.y);
 
-    rect(0, 0, 50, 50);
+    rect(0, 0, 10, 10);
     popMatrix();
   }
 }
