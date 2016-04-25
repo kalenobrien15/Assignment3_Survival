@@ -5,7 +5,7 @@ class Player extends GameObject
 
     super(x, y);
     speed = 5;
-    ammo = 5;
+    ammo = 500;
     //gravity = 1;
   }
 
@@ -27,8 +27,10 @@ class Player extends GameObject
     } else   if (keys[DOWN])
     {
       moving=true;
-    } else {
+    } 
+      else {
       moving=false;
+      println("stopped");
     }
 
 
@@ -65,8 +67,8 @@ class Player extends GameObject
     translate(pos.x, pos.y);
 
     if (moving==false) {
-
       image(pidle, 0, 0);
+      walk.stop();
     }
 
     if (moving==true) {
@@ -108,11 +110,6 @@ class Player extends GameObject
           Bullet b = new Bullet(pos.x, pos.y, right);
           bullets.add(b);
           ammo --;
-          
-         if(b.pos.x>=width){
-            bullets.remove(b); 
-           println("Removed");
-         }
         }
       }
     }
@@ -132,10 +129,10 @@ class Player extends GameObject
     if (keys[UP])
     {
       pos.y-= speed;
-       if (ammo>0) {
+      if (ammo>0) {
         if (keys[' '])
         {
-          
+
           //        PVector left = new PVector(0, 1);
           Bullet b = new Bullet(pos.x, pos.y, up);
           bullets.add(b);
@@ -147,7 +144,7 @@ class Player extends GameObject
     {
 
       pos.y+= speed;
-       if (ammo>0) {
+      if (ammo>0) {
         if (keys[' '])
         {
           //        PVector left = new PVector(0, 1);
@@ -158,7 +155,5 @@ class Player extends GameObject
       }
     }
   }
-  
-
 }
 

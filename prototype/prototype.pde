@@ -86,11 +86,12 @@ void draw() {
       timer(); 
      }
 
-    for (int i = 0; i < bullets.size (); i ++)
+    for (int i = bullets.size()-1; i >=0; i --)
     {
+      
       bullets.get(i).update();
       bullets.get(i).render();
-      
+     
     }
   }
 }

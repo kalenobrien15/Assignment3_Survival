@@ -13,7 +13,8 @@ class Bullet extends GameObject
     pos.add(PVector.mult(shootDirection, bulletSpeed));
     
     if(pos.x>width){
-      bullets.remove(this);
+     bullets.remove(this);
+     println("removed");
     }
     if(pos.x<0){
       
