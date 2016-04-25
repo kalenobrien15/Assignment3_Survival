@@ -159,9 +159,6 @@ class Player extends GameObject
     }
   }
   
-  void shoot(){
-    
-   bullets.add(b); 
-  }
+
 }
 
