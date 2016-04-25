@@ -1,6 +1,6 @@
 class Player extends GameObject
 {
-
+  
   Player(float x, float y) {
 
     super(x, y);
@@ -27,8 +27,7 @@ class Player extends GameObject
     } else   if (keys[DOWN])
     {
       moving=true;
-    } 
-      else {
+    } else {
       moving=false;
       println("stopped");
     }

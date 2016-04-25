@@ -21,7 +21,7 @@ boolean moving;
 boolean [] keys = new boolean[2000];
 
 //Game Variables
-int time = second();
+int  time = second();
 int s = second();
 int score;
 
@@ -89,12 +89,14 @@ void draw() {
     for (int i = bullets.size()-1; i >=0; i --)
     {
       Bullet b = bullets.get(i);
-      bullets.get(i).update();
-      bullets.get(i).render();
+      b.update();
+      b.render();
      
     }
+    
+   
   }
-}
+} 
 //For Button
 
   
