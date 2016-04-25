@@ -88,7 +88,7 @@ void draw() {
 
     for (int i = bullets.size()-1; i >=0; i --)
     {
-      
+      Bullet b = bullets.get(i);
       bullets.get(i).update();
       bullets.get(i).render();
      

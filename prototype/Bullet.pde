@@ -1,7 +1,7 @@
 class Bullet extends GameObject
 {
   PVector shootDirection;
-  float bulletSpeed = 8.0f;
+  float bulletSpeed = 10.0f;
   Bullet(float x, float y, PVector currShootDirection)
   {
     super(x, y);
