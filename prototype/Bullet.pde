@@ -17,13 +17,13 @@ class Bullet extends GameObject
      println("removed");
     }
     if(pos.x<0){
-      
+      bullets.remove(this);
     }
     if(pos.y<0){
-      
+      bullets.remove(this);
     }
     if(pos.y>height){
-    
+    bullets.remove(this);
     }
   }
 
