@@ -29,6 +29,7 @@ class GameScreen
     } else if (gameScreen == 1) {
       menuScreen();
     } else if (gameScreen == 2) {
+       
       gameScreen();
     } else if (gameScreen == 3) {
       gameOverScreen();
@@ -52,6 +53,8 @@ class GameScreen
   }
 
   void gameScreen() {
+    
+   
     imageMode(CENTER);
     //Background 
     image(ground, cx, cy, width, height);
