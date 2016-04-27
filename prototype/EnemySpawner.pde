@@ -11,8 +11,8 @@ class EnemySpawner extends Enemy{
   /*  if(spawned==5){
         Enemy e = new enemy(pos.x,pos.y);
         
-    }*/
-   
+    }*/ 
+     
   
   
 }

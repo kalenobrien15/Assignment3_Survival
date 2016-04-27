@@ -1,13 +1,13 @@
 import gifAnimation.*;
 Gif walk;
-
+Gif pidle;
 PFont font;
   float ammo;
 
 PImage splash;
 PImage ground;
 // Player Frames
-PImage pidle;
+
 PImage pframe1;
 PImage pframe2;
 
@@ -47,7 +47,7 @@ void setup() {
   cx = screenwidth/2;
   cy = screenheight/2;
   walk = new Gif(this, "player/walk.gif");
-
+  pidle = new Gif(this,"player/idle.gif");
   player1.pos.x = cx;
   player1.pos.y = cy;
   Player player1 = new Player(cx, cy);
@@ -59,8 +59,7 @@ void setup() {
   // Frames for animation
   pframe1 = loadImage("player/frame1.png");
   pframe2 = loadImage("player/frame2.png");
-  pidle = loadImage("player/idle.png");
-  
+
  
   
   //Font
