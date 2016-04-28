@@ -46,7 +46,8 @@ void keyReleased()
 
 int screenheight, screenwidth;
 int cx, cy;
-
+Player player1 = new Player(0, 0);
+Player2 player2 = new Player2(0,0);
 void setup() {
   time=59;
   s=1;
@@ -58,11 +59,15 @@ void setup() {
   cy = screenheight/2;
   walk = new Gif(this, "player/walk.gif");
   pidle = new Gif(this,"player/idle.gif");
-  player1.pos.x = cx;
+  player1.pos.x = 100;
   player1.pos.y = cy;
-  Player player1 = new Player(cx, cy);
+  player2.pos.x =width-100;
+  player2.pos.y = cy;
+  Player player1 = new Player(width-100, cy);
+  Player2 player2 = new Player2(100, cy);
   GameScreen Screen = new GameScreen();
 
+  
   // Screens
   splash = loadImage ("screen/splash.png") ;
   ground = loadImage("screen/ground.png");
@@ -85,9 +90,9 @@ void setup() {
   
 }
 GameScreen Screen = new GameScreen();
-Player player1 = new Player(cx, cy);
-//Bullets
 
+//Bullets
+boolean win;
 ArrayList<Bullet> bullets = new ArrayList<Bullet>(); 
 void draw() {
 
@@ -98,8 +103,8 @@ void draw() {
   Screen.update();
   // When the player should be active .
   if (Screen.gameScreen == 1) {
-    
-   
+
+   if(win==false){
      if(frameCount%60==0){
       timer(); 
      }
@@ -113,6 +118,7 @@ void draw() {
     }
     
    
+  }
   }
 } 
 //For Button

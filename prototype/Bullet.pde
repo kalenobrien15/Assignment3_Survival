@@ -1,7 +1,7 @@
 class Bullet extends GameObject
 {
   PVector shootDirection;
-  float bulletSpeed = 10.0f;
+  float bulletSpeed = 20.0f;
   Bullet(float x, float y, PVector currShootDirection)
   {
     super(x, y);
@@ -28,6 +28,10 @@ class Bullet extends GameObject
     if(pos.x+20>= player1.pos.x && pos.x-20<=player1.pos.x && pos.y+20>=player1.pos.y && pos.y-20<=player1.pos.y){
      bullets.remove(this); 
      player1.hp -=1; 
+    }
+     if(pos.x+20>= player2.pos.x && pos.x-20<=player2.pos.x && pos.y+20>=player2.pos.y && pos.y-20<=player2.pos.y){
+     bullets.remove(this); 
+     player2.hp -=1; 
     }
   }
 

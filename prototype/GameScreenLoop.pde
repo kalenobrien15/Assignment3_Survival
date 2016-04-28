@@ -70,21 +70,44 @@ class GameScreen
   }
 
   void gameScreen() {
-  
+    win=false;
+    textAlign(CENTER);
     imageMode(CENTER);
     //Background 
     image(ground, cx, cy, width, height);
     //Player
     player1.render();
     player1.update();
+    player2.render();
+    player2.update();
     //Information
     textFont(font, 32);
     fill(0);
     rect(cx, height-40, width, 80);
     fill(255);
-    text("Time "+ time, 10, height-42);
-    textFont(font, 26);
-    text("Gold " + player1.hp, 15, height-10);
+    text("Time", cx, height-42);
+    text(time,cx, height-10);
+    textFont(font, 32);
+    text("P1 HP:" + player1.hp, 150, height-20);
+    text(player2.hp+":HP P2" , width-150, height-20);
+    
+    
+    if(player1.hp == 0){
+      win=true;
+      textFont(font, 50);
+      text("PLAYER 2", cx, cy);
+      text("WINS",cx,cy+100);
+  
+        
+    }
+     if(player2.hp == 0){
+      win=true;
+      textFont(font, 50);
+      text("PLAYER 1 ", cx, cy);
+      text("WINS",cx,cy+100);
+  
+        
+    }
     // codes for game over screen
   }
 

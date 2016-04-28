@@ -1,8 +1,8 @@
-class Player extends GameObject
+class Player2 extends GameObject
 {
   int hp;
   float reload;
-  Player(float x, float y) {
+  Player2(float x, float y) {
 
     super(x, y);
     speed = 7;
@@ -14,25 +14,22 @@ class Player extends GameObject
 
 
   void update() {
-    if(hp<0){
-      hp = 0;
-    }
    if(hp>0){
     movement();
  
       shoot();
    
 
-    if (keys['D'])
+    if (keys[RIGHT])
     {
       moving=true;
-    } else  if (keys['A'])
+    } else  if (keys[LEFT])
     {
       moving= true;
-    } else if (keys['W'])
+    } else if (keys[UP])
     {
       moving=true;
-    } else   if (keys['S'])
+    } else   if (keys[DOWN])
     {
       moving=true;
     }
@@ -96,20 +93,20 @@ class Player extends GameObject
     up = new PVector(0, -1);
     down = new PVector(0, 1);
 
-    if (keys['D'])
+    if (keys[RIGHT])
     {
 
       pos.x+=speed;
     }
-    if (keys['A'])
+    if (keys[LEFT])
     {
       pos.x-= speed;
     }
-    if (keys['W'])
+    if (keys[UP])
     {
       pos.y-= speed;
     }
-    if (keys['S'])
+    if (keys[DOWN])
     {
 
       pos.y+= speed;
@@ -118,10 +115,10 @@ class Player extends GameObject
 
 
   void shoot() {
-    if (keys['D'])
+    if (keys[RIGHT])
     {
       if (ammo>0) {
-        if (keys[' '])
+        if (keys[SHIFT])
         {
           if (frameCount%20==0) {
             //        PVector left = new PVector(0, 1);
@@ -132,10 +129,10 @@ class Player extends GameObject
         }
       }
     }
-    if (keys['A'])
+    if (keys[LEFT])
     {
       if (ammo>0) {
-        if (keys[' '])
+        if (keys[SHIFT])
         {
           if (frameCount%20==0) {
             //        PVector left = new PVector(0, 1);
@@ -146,10 +143,10 @@ class Player extends GameObject
         }
       }
     }
-    if (keys['W'])
+    if (keys[UP])
     {
       if (ammo>0) {
-        if (keys[' '])
+        if (keys[SHIFT])
         {
           if (frameCount%20==0) {
             //        PVector left = new PVector(0, 1);
@@ -160,12 +157,12 @@ class Player extends GameObject
         }
       }
     }
-    if (keys['S'])
+    if (keys[DOWN])
     {
 
 
       if (ammo>0) {
-        if (keys[' '])
+        if (keys[SHIFT])
         {
           if (frameCount%20==0) {
             //        PVector left = new PVector(0, 1);
