@@ -6,7 +6,8 @@ class GameScreen
   // 2; Game Screen;
   // 3; GameOver screen;
 
-  int gameScreen=2;
+  int gameScreen=0;
+  int currentScreen = gameScreen;
   int timer = 0;
   GameScreen()
   {
@@ -26,35 +27,50 @@ class GameScreen
       if (timer>=500) {
         gameScreen = 1;
       }
-    } else if (gameScreen == 1) {
-      menuScreen();
     } else if (gameScreen == 2) {
-       
-      gameScreen();
-    } else if (gameScreen == 3) {
+      menuScreen();
+    } else if(gameScreen ==1){
+     gameScreen();
+     
+    } 
+    else if (gameScreen == 3) {
       gameOverScreen();
+    }
+    
+    
+     if (gameScreen == 1 && currentScreen != 1) {
+      song.pause();
+        song = minim.loadFile("background.mp3");
+        
+        song.loop();
+        currentScreen = gameScreen;
+      
     }
   }
 
   void splashScreen() {
     background(255, 255, 255, oppacity);
-
+    
     image(splash, 280, 100);
-
+     textFont(font,50);
+     fill(0);
+      text("Big Egg Games ", 250, cy+300);
     fill(0, 0, 0, oppacity);
     rect(width/2, height/2, width, height);
   }
 
   void menuScreen() {
     imageMode(CENTER);
-    image(ground, cx, cy, width, height);
-    
+   
 
+    image(ground, cx, cy, width, height);
+     
+    
+ 
   }
 
   void gameScreen() {
-    
-   
+  
     imageMode(CENTER);
     //Background 
     image(ground, cx, cy, width, height);
@@ -68,7 +84,7 @@ class GameScreen
     fill(255);
     text("Time "+ time, 10, height-42);
     textFont(font, 26);
-    text("Gold " + score, 15, height-10);
+    text("Gold " + player1.hp, 15, height-10);
     // codes for game over screen
   }
 

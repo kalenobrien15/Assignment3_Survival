@@ -1,27 +1,24 @@
 class Player extends GameObject
 {
+  int hp;
   float reload;
   Player(float x, float y) {
 
     super(x, y);
     speed = 5;
     ammo = 500;
-    reload =1;
+    reload =0;
+    hp = 5;
     //gravity = 1;
   }
 
 
   void update() {
-    if (frameCount%60==0) {
-      reload();
-    } 
+   if(hp>0){
     movement();
-    if (reload <=0) {
+ 
       shoot();
-    }
-    if (reload<0) {
-      reload = 1;
-    }
+   
 
     if (keys[RIGHT])
     {
@@ -35,7 +32,8 @@ class Player extends GameObject
     } else   if (keys[DOWN])
     {
       moving=true;
-    } 
+    }
+  
 
 
 
@@ -61,6 +59,7 @@ class Player extends GameObject
     {
       pos.y = -10;
     }
+  }
   } 
 
   void render() {
@@ -114,9 +113,7 @@ class Player extends GameObject
     }
   }
 
-  void reload() {
-    reload -= 1;
-  }
+
   void shoot() {
     if (keys[RIGHT])
     {
@@ -125,7 +122,7 @@ class Player extends GameObject
         {
           if (frameCount%20==0) {
             //        PVector left = new PVector(0, 1);
-            Bullet b = new Bullet(pos.x, pos.y, right);
+            Bullet b = new Bullet(pos.x+30, pos.y, right);
             bullets.add(b);
             ammo --;
           }
@@ -139,7 +136,7 @@ class Player extends GameObject
         {
           if (frameCount%20==0) {
             //        PVector left = new PVector(0, 1);
-            Bullet b = new Bullet(pos.x, pos.y, left);
+            Bullet b = new Bullet(pos.x-30, pos.y, left);
             bullets.add(b);
             ammo --;
           }
@@ -153,7 +150,7 @@ class Player extends GameObject
         {
           if (frameCount%20==0) {
             //        PVector left = new PVector(0, 1);
-            Bullet b = new Bullet(pos.x, pos.y, up);
+            Bullet b = new Bullet(pos.x, pos.y-30, up);
             bullets.add(b);
             ammo --;
           }
@@ -169,7 +166,7 @@ class Player extends GameObject
         {
           if (frameCount%20==0) {
             //        PVector left = new PVector(0, 1);
-            Bullet b = new Bullet(pos.x, pos.y, down);
+            Bullet b = new Bullet(pos.x, pos.y+30, down);
             bullets.add(b);
             ammo --;
           }
@@ -177,5 +174,6 @@ class Player extends GameObject
       }
     }
   }
+
 }
 

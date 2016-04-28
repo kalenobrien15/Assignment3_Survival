@@ -4,7 +4,7 @@ import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.ugens.*;
 import ddf.minim.effects.*;
-
+ 
 import gifAnimation.*;
 Gif walk;
 Gif pidle;
@@ -22,7 +22,7 @@ PImage playerCurrentFrame;
 
 //Audio Related Stuffs
 Minim minim;
-AudioPlayer song;
+AudioPlayer song,song2;
 
 
 boolean moving;
@@ -79,6 +79,8 @@ void setup() {
   //Music Related Stuff
    minim = new Minim(this);
   song = minim.loadFile("background2.wav");
+  song2 = minim.loadFile("background.mp3");
+  song.loop();
   
   
 }
@@ -95,11 +97,9 @@ void draw() {
 
   Screen.update();
   // When the player should be active .
-  if (Screen.gameScreen == 2) {
-     for(int i=0; i<1; i++)
-     {
-      song.loop(); 
-     }
+  if (Screen.gameScreen == 1) {
+    
+   
      if(frameCount%60==0){
       timer(); 
      }
