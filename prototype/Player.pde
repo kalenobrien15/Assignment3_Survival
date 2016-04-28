@@ -1,21 +1,26 @@
 class Player extends GameObject
 {
-  
+  int hp;
+  float reload;
   Player(float x, float y) {
 
     super(x, y);
     speed = 5;
     ammo = 500;
+    reload =0;
+    hp = 5;
     //gravity = 1;
   }
 
 
   void update() {
+   if(hp>0){
     movement();
+ 
+      shoot();
+   
 
-    if (moving==true) {
-      walk.play();
-    } else if (keys[RIGHT])
+    if (keys[RIGHT])
     {
       moving=true;
     } else  if (keys[LEFT])
@@ -27,10 +32,8 @@ class Player extends GameObject
     } else   if (keys[DOWN])
     {
       moving=true;
-    } else {
-      moving=false;
-      println("stopped");
     }
+  
 
 
 
@@ -56,6 +59,7 @@ class Player extends GameObject
     {
       pos.y = -10;
     }
+  }
   } 
 
   void render() {
@@ -64,25 +68,16 @@ class Player extends GameObject
     imageMode(CENTER);
     //Player Animation Control
     translate(pos.x, pos.y);
-
-    if (moving==false) {
+    if (moving == false) {
       image(pidle, 0, 0);
-      walk.stop();
     }
 
     if (moving==true) {
-
+      walk.play();
       image(walk, 0, 0);
-      /*  if (frame1==true) {
-       image(pframe1, 0, 0);
-       framecount%10;
-       frame2=true;
-       }
-       if (frame2==true) {
-       
-       image(pframe2, 0, 0);
-       framecount%20;
-       frame1=true; */
+    } else {
+      moving=false;
+      walk.stop();
     }
 
 
@@ -102,57 +97,83 @@ class Player extends GameObject
     {
 
       pos.x+=speed;
+    }
+    if (keys[LEFT])
+    {
+      pos.x-= speed;
+    }
+    if (keys[UP])
+    {
+      pos.y-= speed;
+    }
+    if (keys[DOWN])
+    {
+
+      pos.y+= speed;
+    }
+  }
+
+
+  void shoot() {
+    if (keys[RIGHT])
+    {
       if (ammo>0) {
         if (keys[' '])
         {
-          //        PVector left = new PVector(0, 1);
-          Bullet b = new Bullet(pos.x, pos.y, right);
-          bullets.add(b);
-          ammo --;
+          if (frameCount%20==0) {
+            //        PVector left = new PVector(0, 1);
+            Bullet b = new Bullet(pos.x+30, pos.y, right);
+            bullets.add(b);
+            ammo --;
+          }
         }
       }
     }
     if (keys[LEFT])
     {
-      pos.x-= speed;
       if (ammo>0) {
         if (keys[' '])
         {
-          //        PVector left = new PVector(0, 1);
-          Bullet b = new Bullet(pos.x, pos.y, left);
-          bullets.add(b);
-          ammo --;
+          if (frameCount%20==0) {
+            //        PVector left = new PVector(0, 1);
+            Bullet b = new Bullet(pos.x-30, pos.y, left);
+            bullets.add(b);
+            ammo --;
+          }
         }
       }
     }
     if (keys[UP])
     {
-      pos.y-= speed;
       if (ammo>0) {
         if (keys[' '])
         {
-
-          //        PVector left = new PVector(0, 1);
-          Bullet b = new Bullet(pos.x, pos.y, up);
-          bullets.add(b);
-          ammo --;
+          if (frameCount%20==0) {
+            //        PVector left = new PVector(0, 1);
+            Bullet b = new Bullet(pos.x, pos.y-30, up);
+            bullets.add(b);
+            ammo --;
+          }
         }
       }
     }
     if (keys[DOWN])
     {
 
-      pos.y+= speed;
+
       if (ammo>0) {
         if (keys[' '])
         {
-          //        PVector left = new PVector(0, 1);
-          Bullet b = new Bullet(pos.x, pos.y, down);
-          bullets.add(b);
-          ammo --;
+          if (frameCount%20==0) {
+            //        PVector left = new PVector(0, 1);
+            Bullet b = new Bullet(pos.x, pos.y+30, down);
+            bullets.add(b);
+            ammo --;
+          }
         }
       }
     }
   }
+
 }
 

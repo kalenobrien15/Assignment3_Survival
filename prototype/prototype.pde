@@ -1,19 +1,29 @@
+import ddf.minim.spi.*;
+import ddf.minim.signals.*;
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.ugens.*;
+import ddf.minim.effects.*;
+ 
 import gifAnimation.*;
 Gif walk;
-
+Gif pidle;
 PFont font;
-  float ammo;
+float ammo;
 
 PImage splash;
 PImage ground;
 // Player Frames
-PImage pidle;
+
 PImage pframe1;
 PImage pframe2;
 
 PImage playerCurrentFrame;
 
-  
+//Audio Related Stuffs
+Minim minim;
+AudioPlayer song,song2;
+
 
 boolean moving;
 //For Multiple key Presses
@@ -47,7 +57,7 @@ void setup() {
   cx = screenwidth/2;
   cy = screenheight/2;
   walk = new Gif(this, "player/walk.gif");
-
+  pidle = new Gif(this,"player/idle.gif");
   player1.pos.x = cx;
   player1.pos.y = cy;
   Player player1 = new Player(cx, cy);
@@ -59,13 +69,19 @@ void setup() {
   // Frames for animation
   pframe1 = loadImage("player/frame1.png");
   pframe2 = loadImage("player/frame2.png");
-  pidle = loadImage("player/idle.png");
-  
+
  
   
   //Font
   font = loadFont("font.vlw");
   //Directions
+  
+  //Music Related Stuff
+   minim = new Minim(this);
+  song = minim.loadFile("background2.wav");
+  song2 = minim.loadFile("background.mp3");
+  song.loop();
+  
   
 }
 GameScreen Screen = new GameScreen();
@@ -81,7 +97,9 @@ void draw() {
 
   Screen.update();
   // When the player should be active .
-  if (Screen.gameScreen == 2) {
+  if (Screen.gameScreen == 1) {
+    
+   
      if(frameCount%60==0){
       timer(); 
      }
@@ -99,7 +117,9 @@ void draw() {
 } 
 //For Button
 
-  
+void music(){
+ 
+}  
   
 void timer(){
    

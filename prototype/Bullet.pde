@@ -22,8 +22,12 @@ class Bullet extends GameObject
     if(pos.y<0){
       bullets.remove(this);
     }
-    if(pos.y>height){
+    if(pos.y>height-100){
     bullets.remove(this);
+    }
+    if(pos.x+20>= player1.pos.x && pos.x-20<=player1.pos.x && pos.y+20>=player1.pos.y && pos.y-20<=player1.pos.y){
+     bullets.remove(this); 
+     player1.hp -=1; 
     }
   }
 
