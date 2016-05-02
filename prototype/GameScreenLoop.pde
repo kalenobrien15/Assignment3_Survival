@@ -6,7 +6,7 @@ class GameScreen
   // 2; Game Screen;
   // 3; GameOver screen;
 
-  int gameScreen=0;
+  int gameScreen=1;
   int currentScreen = gameScreen;
   int timer = 0;
   GameScreen()
@@ -27,9 +27,11 @@ class GameScreen
       if (timer>=500) {
         gameScreen = 1;
       }
-    } else if (gameScreen == 2) {
+    } else if (gameScreen == 1) {
+      time=60; 
       menuScreen();
-    } else if(gameScreen ==1){
+    } else if(gameScreen ==2){
+     
      gameScreen();
      
     } 
@@ -38,7 +40,7 @@ class GameScreen
     }
     
     
-     if (gameScreen == 1 && currentScreen != 1) {
+     if (gameScreen == 2 && currentScreen != 2) {
       song.pause();
         song = minim.loadFile("background.mp3");
         
@@ -61,15 +63,20 @@ class GameScreen
 
   void menuScreen() {
     imageMode(CENTER);
-   
-
+    textAlign(CENTER);
+    
     image(ground, cx, cy, width, height);
-     
+    fill(255);
+    textFont(font, 70);
+    text("Guns At Dawn", cx, cy);
+    textFont(font, 30);
+    text("Press Space to Start", cx, cy+100);
     
  
   }
 
   void gameScreen() {
+     
     win=false;
     textAlign(CENTER);
     imageMode(CENTER);
@@ -89,7 +96,7 @@ class GameScreen
     text(time,cx, height-10);
     textFont(font, 32);
     text("P1 HP:" + player1.hp, 150, height-20);
-    text(player2.hp+":HP P2" , width-150, height-20);
+    text("P2 HP:"+player2.hp , width-150, height-20);
     
     
     if(player1.hp == 0){
@@ -108,6 +115,11 @@ class GameScreen
   
         
     }
+     if(time<=0 && player1.hp>0 && player2.hp >0){
+      text("IT'S A ", cx, cy);
+      text("DRAW!",cx,cy+100);
+     
+   }
     // codes for game over screen
   }
 

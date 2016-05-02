@@ -8,24 +8,21 @@ import ddf.minim.effects.*;
 import gifAnimation.*;
 Gif walk;
 Gif pidle;
+Gif walk2;
+Gif idle2;
 PFont font;
 float ammo;
 
 PImage splash;
 PImage ground;
-// Player Frames
 
-PImage pframe1;
-PImage pframe2;
-
-PImage playerCurrentFrame;
 
 //Audio Related Stuffs
 Minim minim;
-AudioPlayer song,song2;
+AudioPlayer song,song2,hurt,shoot;
 
 
-boolean moving;
+
 //For Multiple key Presses
 
 boolean [] keys = new boolean[2000];
@@ -59,6 +56,8 @@ void setup() {
   cy = screenheight/2;
   walk = new Gif(this, "player/walk.gif");
   pidle = new Gif(this,"player/idle.gif");
+  walk2 = new Gif(this,"player/walkp2.gif");
+  idle2 = new Gif(this,"player/Idle2.gif");
   player1.pos.x = 100;
   player1.pos.y = cy;
   player2.pos.x =width-100;
@@ -72,8 +71,7 @@ void setup() {
   splash = loadImage ("screen/splash.png") ;
   ground = loadImage("screen/ground.png");
   // Frames for animation
-  pframe1 = loadImage("player/frame1.png");
-  pframe2 = loadImage("player/frame2.png");
+
 
  
   
@@ -86,6 +84,8 @@ void setup() {
   song = minim.loadFile("background2.wav");
   song2 = minim.loadFile("background.mp3");
   song.loop();
+  hurt = minim.loadFile("audio/hurt.wav");
+  shoot = minim.loadFile("audio/shoot.wav");
   
   
 }
@@ -108,7 +108,7 @@ void draw() {
      if(frameCount%60==0){
       timer(); 
      }
-
+  
     for (int i = bullets.size()-1; i >=0; i --)
     {
       Bullet b = bullets.get(i);

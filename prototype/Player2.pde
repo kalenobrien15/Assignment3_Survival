@@ -1,5 +1,6 @@
 class Player2 extends GameObject
 {
+  boolean moving;
   int hp;
   float reload;
   Player2(float x, float y) {
@@ -8,7 +9,7 @@ class Player2 extends GameObject
     speed = 7;
     ammo = 500;
     reload =0;
-    hp = 5;
+    hp = 10;
     //gravity = 1;
   }
 
@@ -33,7 +34,7 @@ class Player2 extends GameObject
     {
       moving=true;
     }
-  
+      else {moving =false;}
 
 
 
@@ -69,15 +70,18 @@ class Player2 extends GameObject
     //Player Animation Control
     translate(pos.x, pos.y);
     if (moving == false) {
-      image(pidle, 0, 0);
+      walk2.stop();
+      idle2.play();
+      image(idle2, 0, 0);
     }
 
     if (moving==true) {
-      walk.play();
-      image(walk, 0, 0);
+      idle2.stop();
+      walk2.play();
+      image(walk2, 0, 0);
     } else {
       moving=false;
-      walk.stop();
+      
     }
 
 
@@ -121,6 +125,8 @@ class Player2 extends GameObject
         if (keys[SHIFT])
         {
           if (frameCount%20==0) {
+                shoot.play();
+            shoot.rewind();
             //        PVector left = new PVector(0, 1);
             Bullet b = new Bullet(pos.x+30, pos.y, right);
             bullets.add(b);
@@ -135,6 +141,8 @@ class Player2 extends GameObject
         if (keys[SHIFT])
         {
           if (frameCount%20==0) {
+                shoot.play();
+            shoot.rewind();
             //        PVector left = new PVector(0, 1);
             Bullet b = new Bullet(pos.x-30, pos.y, left);
             bullets.add(b);
@@ -149,6 +157,8 @@ class Player2 extends GameObject
         if (keys[SHIFT])
         {
           if (frameCount%20==0) {
+                shoot.play();
+            shoot.rewind();
             //        PVector left = new PVector(0, 1);
             Bullet b = new Bullet(pos.x, pos.y-30, up);
             bullets.add(b);
@@ -165,6 +175,8 @@ class Player2 extends GameObject
         if (keys[SHIFT])
         {
           if (frameCount%20==0) {
+                shoot.play();
+            shoot.rewind();
             //        PVector left = new PVector(0, 1);
             Bullet b = new Bullet(pos.x, pos.y+30, down);
             bullets.add(b);
