@@ -102,7 +102,7 @@ void draw() {
 
   Screen.update();
   // When the player should be active .
-  if (Screen.gameScreen == 1) {
+  if (Screen.gameScreen == 2) {
 
    if(win==false){
      if(frameCount%60==0){

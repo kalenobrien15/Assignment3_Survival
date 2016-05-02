@@ -6,7 +6,7 @@ class Player2 extends GameObject
   Player2(float x, float y) {
 
     super(x, y);
-    speed = 7;
+    speed = 5;
     ammo = 500;
     reload =0;
     hp = 10;
