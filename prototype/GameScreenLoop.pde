@@ -72,8 +72,14 @@ class GameScreen
     player1.render();
     player1.pos.y+= 5;
     player1.moving = true;
+    player2.render();
+    player2.pos.y -= 5;
+    player2.moving = true;
     if (player1.pos.y > height+50) {
       player1.pos.y = -50;
+    }
+    if(player2.pos.y<-50){
+     player2.pos.y = height+50; 
     }
     if (keys[' '])
     {
