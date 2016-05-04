@@ -71,6 +71,8 @@ class GameScreen
     player2.hp = 10;
     player1.render();
     player1.pos.y+= 5;
+    player1.pos.x = cx-150;
+    player2.pos.x = cx +150;
     player1.moving = true;
     player2.render();
     player2.pos.y -= 5;
