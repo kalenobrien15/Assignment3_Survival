@@ -6,6 +6,9 @@ processing.
 
 I wrote a blog post on what I learned during the assignment if you want to check it out!
 https://bigegggames.wordpress.com/2016/05/04/programming-is-truly-amazing/
+
+You can also check it out on itch.io!
+https://kalcifer.itch.io/guns-at-dawn
 # Info on Kalen(Kal)
 Twitter: @kalobrienz
 Email: kalobrienz@gmail.com
